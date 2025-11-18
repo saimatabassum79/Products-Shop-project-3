@@ -1,6 +1,7 @@
 import React from "react";
 import toursData from "../../../public/TourData.json";
 import { motion } from "framer-motion";
+import { Link } from "react-router";
 
 const TourCardSection = () => {
   const cardVariants = {
@@ -83,12 +84,14 @@ const TourCardSection = () => {
                   <span className="text-sm text-gray-400">/Person</span>
                 </p>
 
+                <Link to={`/toursData/${tour.id}`}>
                 <motion.button
                   whileHover={{ x: 5 }}
                   className="text-[#F54A00] font-semibold hover:text-[#bc3d07] transition"
                 >
                   View Details
                 </motion.button>
+                </Link>
               </div>
             </div>
           </motion.div>

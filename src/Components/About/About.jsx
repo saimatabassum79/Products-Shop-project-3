@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import { motion } from 'framer-motion';
 
@@ -16,17 +14,16 @@ const features = [
   { id: 3, title: '24/7 Support', desc: 'We are available any time for help.' },
 ];
 
-export default function  About() {
+export default function About() {
   return (
     <div className="my-10 bg-gradient-to-b from-white to-slate-50 text-slate-900">
-      
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
         <Hero />
 
         <section className="mt-12">
           <SectionHeader title="Popular Tours" subtitle="Handpicked tours people love" />
-          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {tours.map((t, idx) => (
               <TourCard key={t.id} tour={t} index={idx} />
             ))}
@@ -35,11 +32,11 @@ export default function  About() {
 
         <section className="mt-16">
           <SectionHeader title="Why Choose Tourex" subtitle="We make travel simple and safe" />
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             {features.map((f) => (
               <motion.div key={f.id} whileHover={{ y: -6 }} className="p-6 bg-white rounded-2xl shadow-md">
-                <h3 className="text-lg font-semibold mb-2">{f.title}</h3>
-                <p className="text-sm text-slate-600">{f.desc}</p>
+                <h3 className="text-lg sm:text-xl font-semibold mb-2">{f.title}</h3>
+                <p className="text-sm sm:text-base text-slate-600">{f.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -47,32 +44,36 @@ export default function  About() {
 
         <section className="mt-16">
           <SectionHeader title="What People Say" subtitle="Testimonials" />
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
             <Testimonial name="Saima" text="Amazing experience. Guide was professional and friendly." />
             <Testimonial name="Mumu" text="Smooth booking process and great value for money." />
             <Testimonial name="Sathi" text="The highlights were perfectly organized. Highly recommended." />
           </div>
         </section>
       </main>
-
-      
     </div>
   );
 }
 
 function Hero() {
   return (
-    <section className="mt-8 bg-[url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600')] bg-cover mt-10 bg-center rounded-2xl overflow-hidden shadow-lg">
-      <div className="backdrop-brightness-75 bg-black/30 py-20 px-6 sm:px-12">
+    <section className="mt-8 bg-[url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1600')] bg-cover bg-center rounded-2xl overflow-hidden shadow-lg">
+      <div className="backdrop-brightness-75 bg-black/30 py-16 sm:py-20 px-4 sm:px-6 md:px-12">
         <div className="max-w-3xl mx-auto text-center text-white">
-          <motion.h2 initial={{ y: 10, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.5 }} className="text-3xl sm:text-4xl font-extrabold">Discover your next adventure</motion.h2>
+          <motion.h2 
+            initial={{ y: 10, opacity: 0 }} 
+            animate={{ y: 0, opacity: 1 }} 
+            transition={{ duration: 0.5 }} 
+            className="text-2xl sm:text-3xl md:text-4xl font-extrabold">
+            Discover your next adventure
+          </motion.h2>
           <p className="mt-4 text-sm sm:text-base">Find packages, day trips, and guided tours — handpicked for you.</p>
 
           <div className="mt-6">
             <SearchForm />
           </div>
 
-          <div className="mt-6 text-xs text-slate-200">Top searches: Cox's Bazar · Sundarbans · Sylhet</div>
+          <div className="mt-6 text-xs sm:text-sm text-slate-200">Top searches: Cox's Bazar · Sundarbans · Sylhet</div>
         </div>
       </div>
     </section>
@@ -81,25 +82,25 @@ function Hero() {
 
 function SearchForm() {
   return (
-    <motion.form whileTap={{ scale: 0.995 }} className=" bg-white/80 rounded-full p-1 flex items-center max-w-2xl mx-auto shadow-md">
-      <input className="flex-1 px-4 py-3 rounded-l-full outline-none text-black " placeholder="Where do you want to go?" />
-      <input className="w-32 px-4 py-3 outline-none border-l text-black " placeholder="Dates" />
-      <select className="w-28 px-3 py-3 text-black outline-none border-l rounded-r-full">
+    <motion.form whileTap={{ scale: 0.995 }} className="bg-white/80 hidden  rounded-full p-1 md:block flex-col sm:flex-row items-center max-w-2xl mx-auto shadow-md gap-2 sm:gap-0">
+      <input className="flex-1 px-4 py-3 rounded-full sm:rounded-l-full outline-none text-black" placeholder="Where do you want to go?" />
+      <input className="w-full sm:w-32 px-4 py-3 outline-none border-t sm:border-t-0 sm:border-l text-black rounded-full sm:rounded-none" placeholder="Dates" />
+      <select className="w-full sm:w-28 px-3 py-3 text-black outline-none border-t sm:border-t-0  rounded-full sm:rounded-r-full">
         <option>1 person</option>
         <option>2 people</option>
         <option>Group</option>
       </select>
-      <button type="button" className="ml-2 mr-1 cursor-pointer px-4 py-2 rounded-full bg-orange-500 text-white font-semibold">Search</button>
+      <button type="button" className="mt-2 sm:mt-0 sm:ml-2 px-4 py-2 rounded-full bg-orange-500 text-white font-semibold">Search</button>
     </motion.form>
   );
 }
 
 function SectionHeader({ title, subtitle }) {
   return (
-    <div className="flex items-center justify-between">
-      <div>
-        <h2 className="text-2xl font-bold">{title}</h2>
-        <p className="text-sm text-slate-500">{subtitle}</p>
+    <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between">
+      <div className="mb-2 sm:mb-0">
+        <h2 className="text-xl sm:text-2xl font-bold">{title}</h2>
+        <p className="text-sm sm:text-base text-slate-500">{subtitle}</p>
       </div>
       <a className="text-sm font-medium cursor-pointer text-[#F54A00] hover:underline">View all</a>
     </div>
@@ -108,19 +109,19 @@ function SectionHeader({ title, subtitle }) {
 
 function TourCard({ tour, index }) {
   return (
-    <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.08 }} className="bg-white hover:scale-105 duration-500  rounded-2xl overflow-hidden shadow-md">
-      <div className="h-60  bg-slate-200">
-        <img src={tour.img} alt={tour.title} className="w-full hover:scale-110 duration-500 h-full object-cover" />
+    <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.08 }} className="bg-white hover:scale-105 duration-500 rounded-2xl overflow-hidden shadow-md">
+      <div className="h-56 sm:h-60 md:h-64 lg:h-72 bg-slate-200 overflow-hidden">
+        <img src={tour.img} alt={tour.title} className="w-full h-full object-cover transition-transform duration-500 hover:scale-110" />
       </div>
       <div className="p-4">
         <h3 className="font-semibold">{tour.title}</h3>
-        <p className="text-xs text-slate-500 mt-1">{tour.days} day(s) · Guided</p>
+        <p className="text-xs sm:text-sm text-slate-500 mt-1">{tour.days} day(s) · Guided</p>
         <div className="mt-3 flex items-center justify-between">
           <div>
             <div className="text-sm text-slate-600">From</div>
-            <div className="text-lg font-bold">${tour.price}</div>
+            <div className="text-lg sm:text-xl font-bold">${tour.price}</div>
           </div>
-          <button className="px-3 py-2 rounded-lg bg-[#F54A00] text-white text-sm">View</button>
+          <button className="px-3 py-2 rounded-lg bg-[#F54A00] text-white text-sm sm:text-base">View</button>
         </div>
       </div>
     </motion.div>
@@ -130,8 +131,8 @@ function TourCard({ tour, index }) {
 function Testimonial({ name, text }) {
   return (
     <motion.blockquote whileHover={{ scale: 1.02 }} className="p-6 bg-white rounded-2xl shadow-md">
-      <p className="text-sm text-slate-700">“{text}”</p>
-      <footer className="mt-4 text-xs text-slate-500">— {name}</footer>
+      <p className="text-sm sm:text-base text-slate-700">“{text}”</p>
+      <footer className="mt-4 text-xs sm:text-sm text-slate-500">— {name}</footer>
     </motion.blockquote>
   );
 }

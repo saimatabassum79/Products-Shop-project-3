@@ -11,7 +11,8 @@ import About from './Components/About/About';
 import Contact from './Components/Contact/Contact';
 import Blog from './Components/Blog/Blog';
 import TourListing from './Components/Features/TourListing';
-import TourDetails from './Components/TourDetails/TourDetails';
+import Details from './Components/details/Details';
+
 
 
 
@@ -29,14 +30,15 @@ const router = createBrowserRouter([
         Component:TourListing,
       },
       {
+        path:"/toursData/:id",
+        loader:()=>fetch("/TourData.json"),
+        Component:Details,
+      },
+      {
         path:"/blog",
         Component:Blog,
       },
-      {
-        path:"/toursData/:id",
-        loader:()=>fetch("/TourData.json"),
-        Component:TourDetails,
-      },
+      
       {
         path:"/about",
         Component:About,
