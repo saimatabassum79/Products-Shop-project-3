@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Venice, Italy",
+    "image": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=600&q=80",
+    "description": "Romantic canals and gondola rides in the heart of Italy."
+  },
+  {
+    "id": 2,
+    "name": "New York, USA",
+    "image": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=600&q=80",
+    "description": "The city that never sleeps — full of iconic landmarks and culture."
+  },
+  {
+    "id": 3,
+    "name": "Switzerland",
+    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
+    "description": "Snow-capped mountains, serene lakes, and breathtaking scenery."
+  },
+  {
+    "id": 4,
+    "name": "Sydney, Australia",
+    "image": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=600&q=80",
+    "description": "Home to the Sydney Opera House and beautiful beaches."
+  }
+]
