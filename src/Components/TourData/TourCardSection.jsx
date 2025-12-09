@@ -36,9 +36,9 @@ const TourCardSection = () => {
       </motion.h2>
 
       <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-8 container mx-auto px-6 md:px-12">
-        {toursData.map((tour, index) => (
+        {toursData?.map((tour, index) => (
           <motion.div
-            key={tour.id}
+            key={tour?.id}
             custom={index}
             variants={cardVariants}
             initial="hidden"
@@ -50,20 +50,20 @@ const TourCardSection = () => {
             {/* Image Section */}
             <div className="relative">
               <img
-                src={tour.image}
-                alt={tour.title}
+                src={tour?.image}
+                alt={tour?.title}
                 className="w-full h-52 object-cover"
               />
 
               <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/30"></div>
 
-              {tour.tag && (
+              {tour?.tag && (
                 <span
                   className={`absolute top-3 left-3 text-xs px-3 py-1 rounded-md font-medium shadow-md ${
-                    tour.tagColor || "bg-[#F54A00] text-white"
+                    tour?.tagColor || "bg-[#F54A00] text-white"
                   }`}
                 >
-                  {tour.tag}
+                  {tour?.tag}
                 </span>
               )}
             </div>
